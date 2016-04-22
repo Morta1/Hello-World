@@ -1,0 +1,418 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: Play;
+}
+
+.clearfix:after{
+	clear:both;
+	content:".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.slabo{
+	font-family: 'Slabo 27px';
+}
+
+.centered{
+	width: 1500px;
+	margin: 0 auto;
+}
+
+.centered-main{
+	width: 1170px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+nav{
+	background-color: #03aeef;
+	height: 60px;
+	position: relative;
+}
+
+.logo{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	color:white;
+}
+
+.fa{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	margin-top: 7px;
+}
+
+.logo-text{
+	font-size: 25px;
+	color:white;
+	font-weight: bold;
+	line-height: 60px;
+	margin-left: 10px;
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+}
+
+.top-nav{
+	position: relative;
+	float:right;
+	top:0;
+	right:0;
+	font-size: 0;
+}
+
+.top-nav > ul {
+	list-style-type: none;
+}
+
+.top-nav > ul > li{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	padding: 0 10px;
+}
+
+.top-nav > ul > li:hover{
+	background-color: #47bdea;
+}
+
+
+.top-nav > ul > li > a{
+	text-decoration: none;
+	line-height: 60px;
+	color:white;
+	font-size: 18px;
+}
+
+section.first{
+	background: #000 url(../images/womanbg.jpg) no-repeat 0 -150px / cover;
+	height: 700px;
+}
+
+.top-buttons{
+	padding: 150px 0 50px 0;
+}
+
+.top-buttons > .left-button{
+	position: relative;
+	float:left;
+	top:0;
+	left:200px;
+	background-color: #05adee;
+	padding: 8px;
+	border-radius: 5px;
+	opacity: 0.65;
+}
+
+.top-buttons > .right-button{
+	position: relative;
+	float:right;
+	top:0;
+	right:200px;
+	background-color: #05adee;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+.top-buttons > a{
+	text-decoration: none;
+	color:white;
+}
+
+.titles{
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+}
+
+.main-title{
+	font-size: 50px;
+	color:white;
+	display: block;
+}
+
+.sub-title{
+	margin: 15px 0 25px 0;
+	font-size: 27px;
+	color:white;
+	display: block;
+}
+
+.register{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	margin-top: 20px;
+}
+
+.video{
+	position: relative;
+	float:right;
+	top:0;
+	right:280px;
+}
+
+.register-title{
+	font-size: 20px;
+	text-align: center;
+	display: block;
+}
+
+.box-input{
+	width: 200px;
+	height: 40px;
+	padding: 5px;
+	background-color: #dddee0;
+	border:none;
+	margin-right: 5px;
+	border-radius: 5px;
+}
+
+.box-input:last-child{
+	margin-right: 0;
+}
+
+form{
+	margin: 20px auto 0 auto;
+}
+
+.input-row{
+	margin-bottom: 10px; 
+}
+
+.register-button{
+	width: 410px;
+	height: 35px;
+	background-color: #f0ad4e;
+	border-radius: 5px;
+	border:none;
+	color:white;
+	font-size:15px;
+	cursor: pointer;
+}
+
+.register-button:hover{
+	background-color: #f0a02d;
+}
+
+.register-button:active{
+	position: relative;
+	top: 1px;
+	box-shadow: inset -3px 13px 83px -22px rgba(0,0,0,0.56);
+}
+
+.register-button:focus{
+	outline: none;
+	border:none;
+}
+
+header{
+	height: 70px;
+	background-color: #777777;
+	text-align: center;
+	border-bottom: 1px solid #038de4;
+}
+
+header > .centered-main > span{
+	color:white;
+	font-size: 25px;
+	line-height: 70px;
+	text-transform: uppercase;
+}
+
+.grey{
+	background-color: #eeeeee;
+	text-align: center;
+}
+
+.block-title{
+	color:#6fbbee;
+	font-size: 30px;
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.reason-image{
+	background-image: url(../images/reason.png);
+	background-size: contain;
+	height: 55px;
+	width: 200px;
+	margin: 0 auto;
+}
+
+.reason-image > span{
+	display: inline-block;
+	margin-top: 10px;
+	color:white;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.second-buttons{
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.second-buttons > ul{
+	list-style-type: none;
+}
+
+.second-buttons > ul > li{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	border: 1px solid #000;
+	border-radius: 5px;
+	width: 250px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 100px;
+}
+
+.second-buttons > ul > li > a{
+	text-decoration: none;
+	color:#000;
+}
+
+.second-buttons > ul > li > a:active{
+	color:#6fbbee;
+	border: 1px solid #6fbbee;
+}
+
+.book-list{
+	margin-bottom: 50px;
+}
+
+.book-list > ul{
+	list-style-type: none;
+}
+
+.book-list > ul > li{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	margin-left: 125px;
+}
+
+.book-list > ul > li.left-arrow, li.right-arrow{
+	background-color: #fff;
+	border:1px solid #000;
+	height: 25px;
+	width: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	margin-top: 90px;
+}
+
+.book-list > ul > li > span {
+	display: block;
+}
+
+.book-list > ul > li > .book-title{
+	font-size:15px;
+	font-weight: bold;
+}
+
+.book-list > ul > li > .book-subtitle{
+	font-size:10px;
+	color:#9498a4;
+}
+
+.floatleft-image {
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	margin-left: 225px;
+}
+
+.floatleft-p-button{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	margin-left: 30px;
+	text-align: left;
+	line-height: 25px;
+	font-size: 20px;
+}
+
+.bottom-ctr{
+	padding-bottom: 30px;
+}
+
+.getstartedbtn{
+	display: block;
+	border-radius: 5px;
+	background-color: #f0ad4e;
+	text-transform: uppercase;
+	color:#fff;
+	font-weight: bold;
+	border: none;
+	font-size: 12px;
+	height: 30px;
+	width: 300px;
+	margin-top: 35px;
+	cursor: pointer;
+}
+
+.getstartedbtn:hover{
+	background-color: #f0a02d;
+}
+
+.getstartedbtn:focus{
+	border: none;
+	outline:none;
+}
+
+.white{
+	background-color: #fff;
+	text-align: center;
+}
+
+.floatright-image {
+	position: relative;
+	float:right;
+	top:0;
+	right:0;
+	margin-right: 225px;
+}
+
+.left-p-button{
+	position: relative;
+	float:left;
+	top:0;
+	left:0;
+	margin-left: 225px;
+	text-align: left;
+	line-height: 25px;
+	font-size: 20px;
+}
+
+.bottom-ctr img{
+	border-radius: 5px;
+}
+
+.organizations{
+	margin-top: 20px;
+}
+
+.organizations img{
+	width: 200px;
+	height: 70px;
+}
