@@ -1,0 +1,192 @@
+*{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+	background: url('img/fullbg.jpg');
+}
+
+#field{
+	height: 500px;
+	width: 800px;
+	margin: 40px auto;
+	border: 1px solid black;
+	position: relative;
+	background: url('img/bg.jpg') no-repeat;
+	cursor: url('img/hammer.png'), auto;
+	border-radius: 30px;
+}
+
+#field.md{
+	cursor: url('img/hammerdown.png'), auto;
+}
+
+#field > button{
+	margin:30px;
+	width: 160px;
+	height: 35px;
+	font-family: verdana;
+	font-weight: bold;
+	border: 1px solid black;
+	border-radius: 3px;
+	font-size: 15px;
+	background-color: #60C4E6;
+	cursor: pointer;
+}
+
+#field > .start-btn:hover{
+	background-color: #6DD5F7;
+}
+
+/*modal*/
+#field > .modal{
+	display: none;
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	margin: 0 auto;
+	background: white;
+	color : black;
+	font-family: verdana;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 1;
+	border-radius: 30px;
+	background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
+
+#field > .modal > .overlay{
+	position: fixed;
+	top: 0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index: 2;
+}
+
+#field > .modal > .content{
+	background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    border: 1px solid #888;
+	transform: translateY(140px);
+    width: 400px;
+    z-index: 900;
+    cursor: default;
+}
+
+#field > .modal > .content > p{
+	margin-top:10px;
+	font-weight: bold;
+}
+
+#field > .modal > .content > .close{
+	background: url("img/fileclose.png") no-repeat;
+	height: 32px;
+	width: 32px;
+	position:absolute;
+	top:0;
+	right:0;
+	cursor: pointer;
+}
+
+#field > .modal > .content > .title{
+	text-align: center;
+	content : "Game Over!";
+	font-family: verdana;
+	font-size:25px;
+}
+
+/*modal*/
+
+/*configuring pika (ctr)*/
+#field > .ctr{
+	height: 100px;
+	width: 100px;
+	position: absolute;
+}
+
+#field > .ctr > .pika{
+	height: 90px;
+	width: 80px;
+	position: absolute;
+	top: 3px;
+	left:10px;
+	overflow: hidden;
+}
+
+#field > .ctr > .pika > div{
+	height: 90px;
+	width: 80px;
+	margin: 0 auto;
+	transform: translateY(90px);
+	background: url('img/pikasprite.png') no-repeat 0 0;
+}
+
+#field > .ctr > .pika > .dead{
+	background: url('img/pikasprite.png') no-repeat -80px 0;
+}
+
+
+#field > .ctr > .hole{
+	height: 33px;
+	width: 100px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: url('img/hole.png') no-repeat 0 0;
+}
+
+@-webkit-keyframes bounce{
+	0% { transform: translateY(90px); }
+	50% { transform: translateY(0);}
+	100% { transform: translateY(90px); }
+}
+
+#field > .ctr > .pika > div.s1{
+	-webkit-animation-name: bounce;
+	-webkit-animation-duration: 3s;
+}
+
+#field > .ctr > .pika > div.s2{
+	-webkit-animation-name: bounce;
+	-webkit-animation-duration: 2s;
+}
+
+#field > .ctr > .pika > div.s3{
+	-webkit-animation-name: bounce;
+	-webkit-animation-duration: 1s;
+}
+
+#field > .scoreboard > .game-timer{
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size:30px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+#field > .scoreboard >.game-points{
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;	
+	font-size:30px;
+	font-weight: bold;
+}
+
+#field > .scoreboard{
+	position: absolute;
+	right: 30px;
+	top: 10px;
+	font-size: 20px;
+	font-family: verdana;
+}
+
