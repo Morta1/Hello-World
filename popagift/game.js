@@ -4,13 +4,18 @@ var Game = function(){
 	this.totalBoxes = 6;
 	this.gameTimer = null;
 	this.duration = null;
+	this.bestScore = localStorage.getItem('bestScore');
 
 	//dom objs
 	this.timer = null;
 	this.points = null;
 	this.field = document.getElementById('field');
 	this.btn = document.createElement('button');
+	this.bScore = document.createElement('p');
 	var _this = this;
+
+	//sound
+	this.s_game = new Audio("sound/gamesound.mp3");
 
 	this.btn.innerHTML = 'Start Game';
 	this.btn.addEventListener('click', function(){
@@ -36,7 +41,16 @@ var Game = function(){
 	this.points = document.createElement('p');
 	this.points.className = "game-points";
 	this.points.innerHTML = "0";
+	this.bScore.className = "best";
 
+	if (this.bestScore){
+		this.bScore.innerHTML = 'Best Score : ' + this.bestScore;
+	}
+	else{
+		this.bScore.innerHTML = 'Best Score : 0';
+	}
+
+	scoreboard.appendChild(this.bScore);
 	scoreboard.appendChild(this.btn);
 	scoreboard.appendChild(this.timer);
 	scoreboard.appendChild(this.points);
@@ -51,6 +65,10 @@ var Game = function(){
 
 Game.prototype = {
 	startGame : function(){
+		//sound
+		this.s_game.currentTime=0;
+		this.s_game.play();
+		//resetting box postion
 		for (var i = 0; i < this.totalBoxes; i++) {
 			this.boxes[i].setBoxPos(this.getRandom(0,730));
 			this.boxes[i].setBoxAction({t:"ctr", p:null});
@@ -70,7 +88,7 @@ Game.prototype = {
 				clearInterval(_this.gameTimer);
 				_this.gameTimer = 0;
 			}
-		}, 1000);
+		}, 900);
 
 		this.gameBeat();
 	},
@@ -83,7 +101,7 @@ Game.prototype = {
 			var _this = this;
 			setTimeout(function(){
 				_this.gameBeat();
-			}, 2000);
+			}, 1500);
 		}
 		else{
 			this.endGame();
@@ -91,8 +109,14 @@ Game.prototype = {
 	},
 
 	endGame : function(){
+		this.s_game.currentTime=0;
+		this.s_game.pause();
 		this.duration = 0;
 		this.btn.innerHTML = "Start Game";
+		if (this.gamePoints > this.bestScore){
+			localStorage.setItem('bestScore', this.gamePoints);
+			this.bScore.innerHTML = 'Best Score : ' + this.gamePoints;
+		}
 	},
 
 	getActionParam : function(){

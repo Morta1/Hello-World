@@ -9,10 +9,19 @@ body{
 	background: url('img/fullbg.jpg') no-repeat;
 }
 
+/*#title{
+	font-family: verdana;
+	font-weight: bold;
+	font-size: 100px; 
+	color: #CCE0BC;
+	text-align: center;
+	transform: translateY(100px);
+}*/
+
 #field{
 	height: 500px;
 	width: 800px;
-	margin: 190px auto;
+	margin: 140px auto;
 	border: 1px solid black;
 	position: relative;
 	top: 0;
@@ -83,6 +92,16 @@ body{
 	width: 0;
 }
 
+#field > .scoreboard > .best{
+	position: absolute;
+	font-size: 30px;
+	display: inline-block;
+	font-family: zorque;
+	font-weight: bold;
+	top:8px;
+	left:230px;
+}
+
 .s1{
 	animation-name: fallDown;
 	animation-duration: 5s;
@@ -103,3 +122,7 @@ body{
 	100% {transform: translateY(550px);}
 }
 
+@font-face{
+	font-family: zorque;
+	src:url('font/zorque.ttf');
+}
