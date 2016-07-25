@@ -88,7 +88,7 @@ Game.prototype = {
 				clearInterval(_this.gameTimer);
 				_this.gameTimer = 0;
 			}
-		}, 900);
+		}, 1000);
 
 		this.gameBeat();
 	},
@@ -109,9 +109,9 @@ Game.prototype = {
 	},
 
 	endGame : function(){
+		this.duration = 0;
 		this.s_game.currentTime=0;
 		this.s_game.pause();
-		this.duration = 0;
 		this.btn.innerHTML = "Start Game";
 		if (this.gamePoints > this.bestScore){
 			localStorage.setItem('bestScore', this.gamePoints);
