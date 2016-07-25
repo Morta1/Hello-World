@@ -1,0 +1,105 @@
+*{
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+	background-color: lightblue;
+	background: url('img/fullbg.jpg') no-repeat;
+}
+
+#field{
+	height: 500px;
+	width: 800px;
+	margin: 190px auto;
+	border: 1px solid black;
+	position: relative;
+	top: 0;
+	left:0;
+	border-radius: 10px;
+	overflow: hidden;
+	background: url('img/bg.jpg') no-repeat;
+}
+
+#field > .scoreboard > button{
+	margin:9px;
+	width: 160px;
+	height: 35px;
+	font-family: verdana;
+	font-weight: bold;
+	color:black;
+	border: 1px solid black;
+	border-radius: 3px;
+	font-size: 15px;
+	background-color: white;
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+#field > .start-btn:hover{
+	background-color: #6DD5F7;
+}
+
+#field > .scoreboard{
+	height: 50px;
+	width: 800px;
+	background:url('img/scoreboard.jpg') no-repeat;
+	position: absolute;
+	border-radius: 3px;
+	z-index: 999;
+}
+
+#field > .scoreboard > .game-timer{
+	font-size: 30px;
+	font-family: verdana;
+	display: inline-block;
+	font-weight: bold;
+	position: absolute;
+ 	right:153px;
+ 	top:6px;
+}
+
+#field > .scoreboard > .game-points{
+	font-size: 30px;
+	font-family: verdana;
+	display: inline-block;
+	font-weight: bold;
+ 	position: absolute;
+ 	right:37px;
+ 	top:6px;
+}
+
+#field > .ctr{
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	top:-26px;
+	background-color: blue;
+}
+
+#field > .dead{
+	height: 0;
+	width: 0;
+}
+
+.s1{
+	animation-name: fallDown;
+	animation-duration: 5s;
+}
+
+.s2{
+	animation-name: fallDown;
+	animation-duration: 4s;
+}
+
+.s3{
+	animation-name: fallDown;
+	animation-duration: 3s;
+}
+
+@keyframes fallDown{
+	0% {transform: translateY(-60px);}
+	100% {transform: translateY(550px);}
+}
+
