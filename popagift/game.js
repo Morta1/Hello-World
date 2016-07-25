@@ -61,6 +61,11 @@ var Game = function(){
 		_this.gamePoints += e.detail;
 		_this.showGamePoints();
 	});
+
+	// this.field.addEventListener('mousedown',function() {
+	// 	_this.s_giftPop.currentTime=0.5;
+	// 	_this.s_giftPop.play();
+	// });
 }
 
 Game.prototype = {
