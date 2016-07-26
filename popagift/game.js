@@ -69,7 +69,7 @@ var Game = function(){
 	document.addEventListener('pop', function(e){
 		_this.gamePoints += e.detail.myPoints;
 		_this.showGamePoints();
-		_this.s_giftPop.currentTime=0.5;
+		_this.s_giftPop.currentTime=0.7;
 		_this.s_giftPop.play();	
 		var span = e.detail.ctr.children[0];
 		var myPoints = e.detail.myPoints;
