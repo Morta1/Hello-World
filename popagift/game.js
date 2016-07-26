@@ -1,10 +1,12 @@
 var Game = function(){
+	//game data
 	this.boxes = new Array();
 	this.gamePoints = 0;
-	this.totalBoxes = 6;
+	this.totalBoxes = 7;
 	this.gameTimer = null;
 	this.duration = null;
 	this.bestScore = localStorage.getItem('bestScore');
+	this.stopped = false;
 
 	//dom objs
 	this.timer = null;
@@ -16,13 +18,20 @@ var Game = function(){
 
 	//sound
 	this.s_game = new Audio("sound/gamesound.mp3");
+	this.s_giftPop = new Audio("sound/popsound.mp3");
 
 	this.btn.innerHTML = 'Start Game';
 	this.btn.addEventListener('click', function(){
 		if(_this.duration > 0){
+			_this.stopped = true;
 			_this.endGame();
 		}
 		else{
+			var modal = document.getElementsByClassName('modal')[0];
+			if (modal){
+				_this.field.removeChild(modal);
+			}
+			_this.stopped = false;
 			_this.startGame();
 		}
 	});
@@ -58,14 +67,20 @@ var Game = function(){
 
 	//events
 	document.addEventListener('pop', function(e){
-		_this.gamePoints += e.detail;
+		_this.gamePoints += e.detail.myPoints;
 		_this.showGamePoints();
+		_this.s_giftPop.currentTime=0.5;
+		_this.s_giftPop.play();	
+		var span = e.detail.ctr.children[0];
+		var myPoints = e.detail.myPoints;
+		span.className = 'add-points';
+		span.innerHTML = "+" + myPoints;
+		console.log('Added: ', myPoints, 'Game points: ', _this.gamePoints);
+		span.addEventListener('animationend', function(){
+			span.className = '';
+			span.innerHTML = '';
+		});
 	});
-
-	// this.field.addEventListener('mousedown',function() {
-	// 	_this.s_giftPop.currentTime=0.5;
-	// 	_this.s_giftPop.play();
-	// });
 }
 
 Game.prototype = {
@@ -99,21 +114,26 @@ Game.prototype = {
 	},
 
 	gameBeat : function(){
+		//keep the game running while checking if duration is not 0
 		if(this.duration > 0){
 			for (var i = 0; i < this.totalBoxes; i++) {
-				this.boxes[i].setBoxAction(this.getActionParam());
+				var obj = this.getActionParam();
+				this.boxes[i].setBoxAction(obj);
 			}
 			var _this = this;
 			setTimeout(function(){
 				_this.gameBeat();
-			}, 1500);
+			}, 2500);
 		}
 		else{
-			this.endGame();
+			if (!this.stopped){
+				this.endGame();
+			}
 		}
 	},
 
 	endGame : function(){
+		//resetting game and pop up a modal
 		this.duration = 0;
 		this.s_game.currentTime=0;
 		this.s_game.pause();
@@ -122,6 +142,42 @@ Game.prototype = {
 			localStorage.setItem('bestScore', this.gamePoints);
 			this.bScore.innerHTML = 'Best Score : ' + this.gamePoints;
 		}
+
+		//Modal
+		//create the modal
+		var modal = document.createElement('div');
+		var content = document.createElement('div');
+		var close = document.createElement('div');
+		var overlay = document.createElement('div');
+		var title = document.createElement('div');
+		var p = document.createElement('p');
+
+		//id and classes
+		modal.className = "modal";
+		content.className = "content";
+		close.className = "close";
+		overlay.className = "overlay";
+		title.className = 'title';
+
+		//text
+		title.innerHTML = "Game Over!";
+		p.innerHTML = "Your score is : " + this.gamePoints;
+
+		//apending
+		content.appendChild(title);
+		content.appendChild(close);
+		content.appendChild(p);
+		modal.appendChild(content);
+		modal.appendChild(overlay);
+
+		this.field.appendChild(modal);
+
+		//Modal events
+		modal.style.display = "block";
+			
+		close.addEventListener('click', function(){
+			modal.style.display = "none";
+		});
 	},
 
 	getActionParam : function(){

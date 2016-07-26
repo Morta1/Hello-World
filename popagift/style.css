@@ -9,15 +9,6 @@ body{
 	background: url('img/fullbg.jpg') no-repeat;
 }
 
-/*#title{
-	font-family: verdana;
-	font-weight: bold;
-	font-size: 100px; 
-	color: #CCE0BC;
-	text-align: center;
-	transform: translateY(100px);
-}*/
-
 #field{
 	height: 500px;
 	width: 800px;
@@ -50,6 +41,8 @@ body{
 	background-color: #6DD5F7;
 }
 
+
+/*scoreboard*/
 #field > .scoreboard{
 	height: 50px;
 	width: 800px;
@@ -79,19 +72,6 @@ body{
  	top:6px;
 }
 
-#field > .ctr{
-	height: 70px;
-	width: 70px;
-	position: absolute;
-	top:-26px;
-	background-color: blue;
-}
-
-#field > .dead{
-	height: 0;
-	width: 0;
-}
-
 #field > .scoreboard > .best{
 	position: absolute;
 	font-size: 30px;
@@ -102,27 +82,127 @@ body{
 	left:230px;
 }
 
-.s1{
+/*gift box*/
+#field > .ctr{
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	top:-15px;
+	background-color: blue;
+}
+
+#field > .dead{
+	height: 0;
+	width: 0;
+}
+
+#field > .ctr > span{
+	position: absolute;
+	font-weight: bold;
+	font-family: zorque;
+	font-size:20px;
+	color:red;
+	-webkit-text-stroke: 1px black;
+	right: -15px;
+}
+
+/*animations*/
+@keyframes fade{
+	0%,100% { opacity: 0 }
+ 	50% { opacity: 1 }
+}
+
+@keyframes fallDown{
+	0% {transform: translateY(-15px);}
+	100% {transform: translateY(520px);}
+}
+
+/*animation classes*/
+#field > .ctr > .add-points{
+    animation: fade 0.5s linear 1 forwards;
+}
+
+#field > .s1{
 	animation-name: fallDown;
 	animation-duration: 5s;
 }
 
-.s2{
+#field > .s2{
 	animation-name: fallDown;
 	animation-duration: 4s;
 }
 
-.s3{
+#field > .s3{
 	animation-name: fallDown;
 	animation-duration: 3s;
 }
 
-@keyframes fallDown{
-	0% {transform: translateY(-60px);}
-	100% {transform: translateY(550px);}
-}
-
+/*font*/
 @font-face{
 	font-family: zorque;
 	src:url('font/zorque.ttf');
 }
+
+/*modal*/
+#field > .modal{
+	display: none;
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	margin: 0 auto;
+	background: white;
+	color : black;
+	font-family: verdana;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 1;
+	border-radius: 5px;
+	background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
+
+#field > .modal > .overlay{
+	position: absolute;
+	top: 0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index: 2;
+}
+
+#field > .modal > .content{
+	background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    border: 1px solid #888;
+	transform: translateY(200px);
+    width: 400px;
+    z-index: 900;
+    cursor: default;
+}
+
+#field > .modal > .content > p{
+	margin-top:10px;
+	font-weight: bold;
+}
+
+#field > .modal > .content > .close{
+	background: url("img/fileclose.png") no-repeat;
+	height: 32px;
+	width: 32px;
+	position:absolute;
+	top:0;
+	right:0;
+	cursor: pointer;
+}
+
+#field > .modal > .content > .title{
+	text-align: center;
+	content : "Game Over!";
+	font-family: zorque;
+	font-size:25px;
+}
+
+/*modal*/

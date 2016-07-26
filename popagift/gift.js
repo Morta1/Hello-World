@@ -2,24 +2,23 @@ var Box = function(position){
 	this.domObj = null;
 	this.points = null;
 	this.dead = false;
-	this.s_giftPop = new Audio("sound/popsound.mp3");
 
 	var _this = this;
 	//create a box
 	var ctr = document.createElement('div');
 	ctr.className = 'ctr';
+	ctr.setAttribute('points', 0);
+	var addPoints = document.createElement('span');
 	var gift = Math.floor(Math.random() * 3  + 1 );
 	ctr.style.background = "url('img/gift" + gift + ".png') no-repeat";
 	//pop a box event
 	ctr.addEventListener('click', function(){
 		if(!(_this.dead)){
-			_this.s_giftPop.currentTime=0.5;
-			_this.s_giftPop.play();
+			
 			_this.domObj.className += ' dead';
 			_this.dead = true;
 			//hide dead box
-			document.dispatchEvent(new CustomEvent('pop', {'detail' : _this.points}));
-
+			document.dispatchEvent(new CustomEvent('pop', {'detail' : {myPoints : _this.points ,ctr : _this.domObj}}));
 		}
 	});
 
@@ -30,6 +29,7 @@ var Box = function(position){
 		_this.domObj.className = 'ctr';
 	});
 
+	ctr.appendChild(addPoints);
 	this.domObj = ctr;
 	this.setBoxPos(position);
 }
